@@ -181,9 +181,8 @@ const homeHTML = `<!DOCTYPE html>
     </div>
     <script>
         document.addEventListener('keydown', function(e) {
-            if (e.metaKey && e.shiftKey && e.code === 'KeyK') {
+            if (e.code === 'Backslash') {
                 e.preventDefault();
-                e.stopPropagation();
                 toggleBrowser();
                 return false;
             }
