@@ -179,7 +179,7 @@ const homeHTML = `<!DOCTYPE html>
     </div>
     <script>
         document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 'K') {
+            if (e.metaKey && e.shiftKey && e.key === 'K') {
                 e.preventDefault();
                 toggleBrowser();
             }
