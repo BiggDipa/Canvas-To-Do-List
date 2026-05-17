@@ -152,18 +152,18 @@ const homeHTML = `<!DOCTYPE html>
             <div class="card-header">Upcoming Assignments</div>
             <div class="task-item">
                 <div class="checkbox"></div>
-                <span class="course-tag">MATH-101</span>
-                <span class="task-text">Problem Set 4: Due Tomorrow</span>
+                <span class="course-tag">Honors Precalculus</span>
+                <span class="task-text">Continutity WS 2</span>
             </div>
             <div class="task-item">
                 <div class="checkbox"></div>
-                <span class="course-tag">HIST-205</span>
-                <span class="task-text">Research Paper Draft: Friday</span>
+                <span class="course-tag">English 2H</span>
+                <span class="task-text">Research Paper: Step 3</span>
             </div>
             <div class="task-item">
                 <div class="checkbox"></div>
-                <span class="course-tag">COMP-150</span>
-                <span class="task-text">Programming Assignment 3</span>
+                <span class="course-tag">French 2</span>
+                <span class="task-text">La Marche-Writing Reflection</span>
             </div>
         </div>
     </div>
