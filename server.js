@@ -181,7 +181,7 @@ const homeHTML = `<!DOCTYPE html>
     </div>
     <script>
         document.addEventListener('keydown', function(e) {
-            if (e.code === 'Backslash') {
+            if (e.key === '\\') {
                 e.preventDefault();
                 toggleBrowser();
                 return false;
