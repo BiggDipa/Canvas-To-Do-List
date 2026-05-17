@@ -88,7 +88,9 @@ const homeHTML = `<!DOCTYPE html>
             z-index: 10000;
             flex-direction: column;
         }
-        #browserOverlay.active { display: flex; }
+        #browserOverlay.active { 
+            display: flex !important; 
+        }
         .browser-header {
             background: #161b22;
             border-bottom: 1px solid #30363d;
@@ -178,22 +180,30 @@ const homeHTML = `<!DOCTYPE html>
         <iframe id="contentFrame" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads"></iframe>
     </div>
     <script>
-        document.addEventListener('keydown', (e) => {
-            if (e.metaKey && e.shiftKey && e.key === 'K') {
+        document.addEventListener('keydown', function(e) {
+            if (e.metaKey && e.shiftKey && e.code === 'KeyK') {
                 e.preventDefault();
+                e.stopPropagation();
                 toggleBrowser();
+                return false;
             }
-            if (e.key === 'Escape') {
+            if (e.code === 'Escape') {
                 document.getElementById('browserOverlay').classList.remove('active');
+                document.getElementById('contentFrame').src = 'about:blank';
             }
-        });
+        }, true);
+        
         function toggleBrowser() {
             const overlay = document.getElementById('browserOverlay');
+            const isOpening = !overlay.classList.contains('active');
             overlay.classList.toggle('active');
-            if (overlay.classList.contains('active')) {
+            if (isOpening) {
                 document.getElementById('urlInput').focus();
+            } else {
+                document.getElementById('contentFrame').src = 'about:blank';
             }
         }
+        
         function navigate() {
             const input = document.getElementById('urlInput').value.trim();
             if (!input) return;
@@ -203,7 +213,8 @@ const homeHTML = `<!DOCTYPE html>
             }
             document.getElementById('contentFrame').src = '/browse?url=' + encodeURIComponent(url);
         }
-        document.getElementById('urlInput').addEventListener('keypress', (e) => {
+        
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') navigate();
         });
     </script>
