@@ -193,8 +193,8 @@ const homeHTML = `<!DOCTYPE html>
         }, true);
         
         function toggleBrowser() {
-            const overlay = document.getElementById('browserOverlay');
-            const isOpening = !overlay.classList.contains('active');
+            var overlay = document.getElementById('browserOverlay');
+            var isOpening = !overlay.classList.contains('active');
             overlay.classList.toggle('active');
             if (isOpening) {
                 document.getElementById('urlInput').focus();
@@ -204,9 +204,9 @@ const homeHTML = `<!DOCTYPE html>
         }
         
         function navigate() {
-            const input = document.getElementById('urlInput').value.trim();
+            var input = document.getElementById('urlInput').value.trim();
             if (!input) return;
-            let url = input;
+            var url = input;
             if (!url.match(/^https?:\/\//)) {
                 url = 'https://' + url;
             }
